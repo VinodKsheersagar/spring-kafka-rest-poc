@@ -32,13 +32,16 @@ public class Consumer {
         {
             //suspend the Kafka Listener to resolve the file writing issue, with id of this listener
             //
-            utils.pause("employeeListener");
+            utils.stop("employeeListener");
             LOGGER.info("Please resolve the file writing issue and Resume the Kafka Listener using UI !");
 
         }
-        LOGGER.info("Message Consumed From The Kafka TOPIC Is : " + gsonMessage.toJson(employee));
+        else {
 
-        acknowledgment.acknowledge();
+            acknowledgment.acknowledge();
+            LOGGER.info("Message Consumed From The Kafka TOPIC Is : " + gsonMessage.toJson(employee));
+
+        }
     }
 
 

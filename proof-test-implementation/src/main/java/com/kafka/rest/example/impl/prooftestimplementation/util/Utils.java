@@ -51,9 +51,9 @@ public class Utils {
     public Utils(KafkaListenerEndpointRegistry registry) {
         this.registry = registry;
     }
-    public void pause(String id) {
+    public void stop(String id) {
 
-        registry.getListenerContainer(id).pause();
+        registry.getListenerContainer(id).stop();
     }
 
 }
